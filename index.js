@@ -1,10 +1,3 @@
-function transaction_(transactionID, date, transactionType, locationT, value){
-    this.transactionID = transactionID;
-    this.date = date;
-    this.transactionType = transactionType;
-    this.locationT = locationT;
-    this.value = value;
-}
 
 
 var transaction01 = {
@@ -161,13 +154,23 @@ var transactions = [
 function ShowTable() {
 
 
-    document.getElementById("main").innerHTML = "<table id = 'transaction'><thead><tr><th>Transaction ID</th><th>Date</th>\<th>Transaction Type</th>" +
+
+    /*
+    transactionID: "01",
+    date: "12/05/17",
+    transactionType: "ATM" ,
+    locationT: "Kitchener",
+    value: "-800 CAD",
+    transactiondDescription:
+     */
+    document.getElementById("tableT").innerHTML = "<div id='table'><table id = 'transaction'><thead><tr><th>Transaction ID</th><th>Date</th>\<th>Transaction Type</th>" +
         "    <th>Location</th>" +
         "    <th>Value</th></td>" +
         "    </tr>" +
         "    </thead>" +
         "    <tbody>" +
-        "    </tbody>"
+        "    </tbody>"+
+        "</form></div>"
 
     var tableBody = "";
     for (var i = 0; i < transactions.length; i++) {
@@ -191,12 +194,69 @@ function ShowTable() {
             "</td><td>" + transactions[i].transactionType + "</td><td>" +
             locationOrDescription
             + "</td>" + valueString + "</tr>";
+
+
+
     }
 
     document.getElementsByTagName("tbody")[0].innerHTML = tableBody;
+    document.getElementById("formT").innerHTML = " <form id=\"addTransaction\">\n" +
+        "            <table id='formTT'><tr><td>Date:</td><td><input type=\"text\" id=\"inputTDate\"></td></tr>\n" +
+        "            <tr><td>Type of transaction:</td><td><input type=\"text\" id=\"inputTType\"></td></tr>\n" +
+        "            <tr><td>Location:</td><td><input type=\"text\" id=\"inputTLocation\"></td></tr>\n" +
+        "            <tr><td>Value:</td><td><input type=\"text\" id=\"inputTValue\"></td></tr>\n" +
+        "            <tr><td>Transactiond Description:</td><td><input type=\"text\" id=\"inputTDescription\"></td></tr>\n" +
+        "            <tr><td></td><td><button id='button' type='button' onclick=\"AddTransaction()\">Add</button></td></tr></table>\n" +
+        "        </form>"
+
+
 
 
     function GoBack() {
         window.history.back();
     }
+}
+
+
+function AddTransaction(){
+    var dateT = document.getElementById("inputTDate").value;
+    var typeT = document.getElementById("inputTType").value;
+    var locationT = document.getElementById("inputTLocation").value;
+    var valueT = document.getElementById("inputTValue").value;
+    var descriptionT = document.getElementById("inputTDescription").value;
+
+    var lenghtOfTransactionsArray = transactions.length;
+    transactions[transactions.length] = {
+        transactionID: transactions.length.toString(),
+        date: dateT,
+        transactionType: typeT,
+        locationT: locationT,
+        value: valueT,
+        transactiondDescription: descriptionT
+    }
+
+    var tableBody = "";
+    var locationOrDescription = transactions[transactions.length-1].locationT;
+    if (transactions[transactions.length-1].locationT.length == 0) {
+        locationOrDescription = transactions[transactions.length-1].transactiondDescription;
+    }
+
+    if (transactions[transactions.length-1].value.indexOf("-") !== -1) {
+        valueString = "<td class='value negative'>" + transactions[transactions.length-1].value + "</td>";
+    }
+    else {
+
+        valueString = "<td class='value positive'>" + transactions[transactions.length-1].value + "</td>";
+    }
+
+
+
+    tableBody += "<tr><td>" + transactions[transactions.length-1].transactionID + "</td><td>" + transactions[transactions.length-1].date +
+        "</td><td>" + transactions[transactions.length-1].transactionType + "</td><td>" +
+        locationOrDescription
+        + "</td>" + valueString + "</tr>";
+    document.getElementsByTagName("tbody")[0].innerHTML += tableBody;
+
+
+    console.log(dateT);
 }
