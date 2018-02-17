@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+ <script type = "text/javascript" src = "js/jquery.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e9ebee;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #4267b2;
+  display: inline-block;
+  width:100%;
+}
+
+.topnav a {
+  color: #131212;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.firstDiv{
+    display: inline-block;
+    color:white;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.secondDiv{
+    display:inline-block;
+    float:right;
+    margin-right: 20px;
+    margin-top: 20px;
+    color: white;
+}
+
+.signUp{
+  width:300px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.signUp form{
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
+  border: 5px solid white;
+}
+.signUp span{
+  text-align: center;
+}
+.signUp input{
+  float:right;
+  width: 200px;
+  height: 15px;
+}
+
+.middle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+    <div class = "firstDiv"><h2>Assignment 2</h2></div>
+    <div align = "right", class = "secondDiv">
+  <form action="nextpage.html" method="get">
+    Email: <input type="text" id = "name" name="name", placeholder = "email"><br>
+    Password: <input type="password" name="password", placeholder="password"><br>
+    <input type="submit" value="Sign In">
+    </div>
+  </form>
+</div>
+
+<div style="padding-left:16px">
+ <div class = "signUp">
+   <h1>Sign Up</h1>
+  <form action="" method="post">
+    <span>First Name: </span><br><input type="text" name="signupuname", placeholder = "first name"><br><br>
+    <span>Last Name: </span><br><input type="password" name="signupnamerepeat", placeholder="last name"><br><br>
+    <span>Email: </span><br><input type="text" name="signupuname", placeholder = "email"><br><br>
+    <span>Password: </span><br><input type="password" name="signupnamerepeat", placeholder="password"><br><br>
+    <span>Re-type Password: </span><br><input type="password" name="lname", placeholder="re-type your password"><br><br>
+    <span><input type="submit" value="Sign Up"></span>
+
+ </div>
+
+ <div class = "middle">
+</div>
+
+</div>
+
+</body>
+</html>
+
