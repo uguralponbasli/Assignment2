@@ -157,33 +157,46 @@ var transactions = [
 ]
 
 
-var tableBody = "";
-for (var i = 0; i < transactions.length; i++) {
 
-    var locationOrDescription = transactions[i].locationT;
-    var valueString = "";
-    if (transactions[i].locationT.length == 0) {
-        locationOrDescription = transactions[i].transactiondDescription;
+function ShowTable() {
+
+
+    document.getElementById("main").innerHTML = "<table id = 'transaction'><thead><tr><th>Transaction ID</th><th>Date</th>\<th>Transaction Type</th>" +
+        "    <th>Location</th>" +
+        "    <th>Value</th></td>" +
+        "    </tr>" +
+        "    </thead>" +
+        "    <tbody>" +
+        "    </tbody>"
+
+    var tableBody = "";
+    for (var i = 0; i < transactions.length; i++) {
+
+        var locationOrDescription = transactions[i].locationT;
+        var valueString = "";
+        if (transactions[i].locationT.length == 0) {
+            locationOrDescription = transactions[i].transactiondDescription;
+        }
+
+        if (transactions[i].value.indexOf("-") !== -1) {
+            valueString = "<td class='value negative'>" + transactions[i].value + "</td>";
+        }
+        else {
+
+            valueString = "<td class='value positive'>" + transactions[i].value + "</td>";
+        }
+
+
+        tableBody += "<tr><td>" + transactions[i].transactionID + "</td><td>" + transactions[i].date +
+            "</td><td>" + transactions[i].transactionType + "</td><td>" +
+            locationOrDescription
+            + "</td>" + valueString + "</tr>";
     }
 
-    if (transactions[i].value.indexOf("-") !== -1) {
-        valueString = "<td class='value negative'>" + transactions[i].value + "</td>";
+    document.getElementsByTagName("tbody")[0].innerHTML = tableBody;
+
+
+    function GoBack() {
+        window.history.back();
     }
-    else {
-
-        valueString = "<td class='value positive'>" + transactions[i].value + "</td>";
-    }
-
-
-    tableBody += "<tr><td>" + transactions[i].transactionID + "</td><td>" + transactions[i].date +
-        "</td><td>" + transactions[i].transactionType + "</td><td>" +
-        locationOrDescription
-        + "</td>" + valueString + "</tr>";
-}
-
-document.getElementsByTagName("tbody")[0].innerHTML = tableBody;
-
-
-function GoBack(){
-    window.history.back();
 }
