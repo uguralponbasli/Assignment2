@@ -54,6 +54,7 @@ body {
     text-align: center;
   }
   .signUp input{
+    float: left;
     width: 200px;
     height: 15px;
   }
