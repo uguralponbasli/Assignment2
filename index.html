@@ -2,8 +2,6 @@
 <html>
 <head>
 <title>Home</title>
- <script type = "text/javascript" src = "js/jquery.js"></script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -52,7 +50,8 @@ body {
   display: inline-block;
   text-align: center;
   padding: 15px;
-  border: 5px solid white;
+  border: 1px solid grey;
+  margin-top: 16px;
 }
 .signUp span{
   text-align: center;
@@ -69,6 +68,65 @@ body {
   justify-content: center;
   
 }
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+.container input[type=text], .container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;    
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 10px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for signup button on extra small screens */
+@media screen and (max-width: 300px) {
+     .signupbtn, .signinbtn {
+       width: 100%;
+    }
+}
 </style>
 </head>
 <body>
@@ -79,21 +137,39 @@ body {
   <form action="nextpage.html" method="get">
     Email: <input type="text" id = "name" name="name", placeholder = "email"><br>
     Password: <input type="password" name="password", placeholder="password"><br>
-    <input type="submit" value="Sign In">
+    <input type="submit" class = "signinbtn" value="Sign In">
     </div>
   </form>
 </div>
 
 <div style="padding-left:16px">
  <div class = "signUp">
-   <h1>Sign Up</h1>
-  <form action="" method="post">
-    <span>First Name: </span><br><input type="text" name="signupuname", placeholder = "first name"><br><br>
-    <span>Last Name: </span><br><input type="password" name="signupnamerepeat", placeholder="last name"><br><br>
-    <span>Email: </span><br><input type="text" name="signupuname", placeholder = "email"><br><br>
-    <span>Password: </span><br><input type="password" name="signupnamerepeat", placeholder="password"><br><br>
-    <span>Re-type Password: </span><br><input type="password" name="lname", placeholder="re-type your password"><br><br>
-    <span><input type="submit" value="Sign Up"></span>
+   <form action="">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+  
+      <label for="email"><b>Email</b></label><br>
+      <input type="text" placeholder="Enter Email" name="email" required>
+  
+      <label for="psw"><b>Password</b></label><br>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label><br>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">
+        </label>
+  
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
 
  </div>
 
