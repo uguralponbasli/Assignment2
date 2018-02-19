@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #4267b2;
+    display: inline-block;
+    width:100%;
+  }
+  
+  .topnav a {
+    color: #131212;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .firstDiv{
+      display: inline-block;
+      color:white;
+      margin-left: 20px;
+      margin-bottom: 20px;
+  }
+  
+  .secondDiv{
+      display:inline-block;
+      float:right;
+      margin-right: 20px;
+      margin-top: 20px;
+      color: white;
+  }
+  
+  .secondDiv p{
+      font-size: smaller;
+  }
+  
+  .signUp{
+    width:300px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+  }
+  
+  .signUp form{
+    display: inline-block;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid black;
+  }
+  .signUp span{
+    text-align: center;
+  }
+  .signUp input{
+    float:right;
+  }
+  
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
