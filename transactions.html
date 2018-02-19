@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type = "text/javascript" src = "database.js"></script>
+<link rel = "stylesheet" type="text/css" href = "transactions.css">
+<link rel = "stylesheet" type="text/css" href = "css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nextpage.css">
+
+<div class="topnav">
+  <div class = "firstDiv">
+    <h2>Transactions</h2>
+  </div>
+  <div class = "secondDiv">
+    User1234,
+    <p>Welcome to the Transaction page!</p>
+  </div>
+</div>
+</head>
+
+<body>
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a class="active" href="transactions.html">Transactions</a></li>
+    <li><a href="addCategory.html">Add transaction type</a></li>
+  </ul>
+  <div id="cont">
+    <div class="filters" align="center">
+      <b> Month: </b>
+      <select id="dateFilter" class="select-style" onchange="filter()">
+        <option value="all">All</option>
+        <option value="jan">January</option>
+        <option value="feb">February</option>
+        <option value="mar">March</option>
+        <option value="apr">April</option>
+        <option value="may">May</option>
+        <option value="jun">June</option>
+        <option value="jul">July</option>
+        <option value="aug">August</option>
+        <option value="sept">September</option>
+        <option value="oct">October</option>
+        <option value="nov">November</option>
+        <option value="dec">December</option>
+      </select>
+      <b> Transaction type: </b>
+      <select id="typesFilter" class="select-style" onchange="filter()">
+        <option value="all">All</option>
+      </select>
+      <b> Location: </b>
+      <select id="locationFilter" class="select-style" onchange="filter()">
+        <option value="all">All</option>
+      </select>
+    </div>
+      <div class="tableContainer">
+        <table id="dashboardTable" align="center">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Value</th>
+              <th>Transaction Type</th>
+              <th>Location/Description</th>
+              <th>Value</th>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<script>
+  showTransactions()
+  loadOptions()
+</script>
+</body>
+</html>
