@@ -2,23 +2,22 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type = "text/javascript" src = "database.js"></script>
-<link rel = "stylesheet" type="text/css" href = "transactions.css">
+<script type = "text/javascript" src = "js/database.js"></script>
+<link rel = "stylesheet" type="text/css" href = "css/transactions.css">
 <link rel = "stylesheet" type="text/css" href = "css/style.css">
 <link rel="stylesheet" type="text/css" href="css/nextpage.css">
-
-<div class="topnav">
-  <div class = "firstDiv">
-    <h2>Transactions</h2>
-  </div>
-  <div class = "secondDiv">
-    User1234,
-    <p>Welcome to the Transaction page!</p>
-  </div>
-</div>
 </head>
 
 <body>
+  <div class="topnav">
+    <div class = "firstDiv">
+      <h2>Transactions</h2>
+    </div>
+    <div class = "secondDiv">
+      User1234,
+      <p>Welcome to the Transaction page!</p>
+    </div>
+  </div>
   <ul>
     <li><a href="dashboard.html">Dashboard</a></li>
     <li><a class="active" href="transactions.html">Transactions</a></li>
@@ -51,24 +50,24 @@
         <option value="all">All</option>
       </select>
     </div>
-      <div class="tableContainer">
-        <table id="dashboardTable" align="center">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Value</th>
-              <th>Transaction Type</th>
-              <th>Location/Description</th>
-              <th>Value</th>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
+    <div class="tableContainer">
+      <table id="dashboardTable" align="center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Value</th>
+            <th>Transaction Type</th>
+            <th>Location/Description</th>
+            <th>Value</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
-<script>
-  showTransactions()
-  loadOptions()
-</script>
+  </div>
+  <script>
+    showTransactions()
+    loadOptions()
+  </script>
 </body>
 </html>

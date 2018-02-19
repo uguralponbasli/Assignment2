@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type = "text/javascript" src = "database.js"></script>
+  <script type = "text/javascript" src = "js/database.js"></script>
   <link rel = "stylesheet" type="text/css" href = "transactions.css">
   <link rel = "stylesheet" type="text/css" href = "css/style.css">
   <link rel="stylesheet" type="text/css" href="css/nextpage.css">
-
+</head>
+<body>
   <div class="topnav">
     <div class = "firstDiv">
       <h2>Dashboard</h2>
@@ -16,30 +17,27 @@
       <p>Welcome to the Dashboard page!</p>
     </div>
   </div>
-</head>
-<body>
+  <ul>
+    <li><a class="active" href="#dashboard">Dashboard</a></li>
+    <li><a href="transactions.html">Transactions</a></li>
+    <li><a href="addCategory.html">Add transaction type</a></li>
+  </ul>
 
-<ul>
-  <li><a class="active" href="#dashboard">Dashboard</a></li>
-  <li><a href="transactions.html">Transactions</a></li>
-  <li><a href="addCategory.html">Add transaction type</a></li>
-</ul>
-
-<div class="tableContainer">
-  <h2 class="title">Latest transactions</h2>
-  <table align="center">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Value</th>
-        <th>Transaction Type</th>
-        <th>Location/Description</th>
-        <th>Value</th>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</div>
-<script>showLatest()</script>
+  <div class="tableContainer">
+    <h2 class="title">Latest transactions</h2>
+    <table align="center">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Value</th>
+          <th>Transaction Type</th>
+          <th>Location/Description</th>
+          <th>Value</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <script>showLatest()</script>
 </body>
 </html>
