@@ -1,3 +1,7 @@
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
 
 function validateForm() {
     var errorMessage = "";
@@ -31,15 +35,22 @@ function validateForm() {
         errorMessage += "*Password must be 4 characters!<br>";
         errorReturn = false;
     }
-    if(strRpassword != strPassword || strRpassword > 4){
-        errorMessage += "*Repeated password must be the same with the password!";
+
+    if(strPassword.length <4){
+        errorMessage += "*Password must be 4 characters!<br>";
+        errorReturn = false;
+        }
+
+    if(strRpassword != strPassword){
+        errorMessage += "*Repeated password must be matched with the password!";
         errorReturn = false;
     }
 
-    var regexp = /^[A-Z]/;
-    if (!regexp.test(email)) {
-        errorMessage += "*Invalid Email";
-        //return false;
+    if(validateEmail(email)){
+        
+    }else{
+         errorMessage += "*Invalid Email!";
+         errorReturn = false;
     }
     document.getElementById("errorMessage").innerHTML = errorMessage;
 
@@ -65,12 +76,12 @@ function SignInValidation(){
         errorReturn = false;
     }
 
-    var regexp = /^[A-Z]/;
+   if(validateEmail(email)){
 
-    if (regexp.test(email)) {
-        errorMessage += "*Invalid Email";
+   }else{
+        errorMessage += "*Invalid Email!";
         errorReturn = false;
-    }
+   }
     document.getElementById("signInError").innerHTML = errorMessage;
         return errorReturn;
 
