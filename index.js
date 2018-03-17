@@ -205,6 +205,19 @@ function addTransaction(){
     var rld = /[A-Z,a-z,0-9,_]*/;
     var rValue = /[-]*[1-9][0-9]*[.]{0,1}[0-9][0-9]/;
     var correct = false;
+
+    document.getElementById("dateHelp").innerHTML="";
+    document.getElementById("date").style.borderColor = "black"
+    document.getElementById("ldHelp").innerHTML="";
+    document.getElementById("ld").style.borderColor = "black";
+    document.getElementById("ttypeHelp").innerHTML="Please transaction type";
+    document.getElementById("ttype").style.borderColor = "black";
+    document.getElementById("valueHelp").innerHTML="Please transaction type";
+    document.getElementById("value").style.borderColor = "black";
+
+
+
+
     if (!(rDate1.test(date) || rDate2.test(date)) || !rld.test(ld) || ld ==="" || ld.length<10 || !rValue.test(value) || parseFloat(value) > 10000.00 || parseFloat(value) < -10000.00) {
         if (!(rDate1.test(date) || rDate2.test(date))) {
             document.getElementById("dateHelp").innerHTML="Date is not valid!";
