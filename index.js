@@ -115,7 +115,7 @@ var transaction14 = {
     transactionID: "14",
     date: "2017-05-13",
     transactionType: "ATM" ,
-    locationT: "",
+    locationT: "Guelph",
     value: "-120 CAD",
     transactiondDescription: "Cash withdrawal"
 };
