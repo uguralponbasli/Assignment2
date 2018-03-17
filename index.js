@@ -9,7 +9,7 @@ function transaction(transactionID, date, transactionType, locationT, value){
 
 var transaction01 = {
     transactionID: "01",
-    date: "12/05/17",
+    date: "2012-05-17",
     transactionType: "ATM" ,
     locationT: "Kitchener",
     value: "-800 CAD",
@@ -17,7 +17,7 @@ var transaction01 = {
 };
 var transaction02 = {
     transactionID: "02",
-    date: "12/05/17",
+    date: "2012-05-17",
     transactionType: "Online" ,
     locationT: "Kitchener",
     value: "-56 CAD",
@@ -25,7 +25,7 @@ var transaction02 = {
 };
 var transaction03 = {
     transactionID: "03",
-    date: "12/05/17",
+    date: "2012-05-17",
     transactionType: "Transfer" ,
     locationT: "Toronto",
     value: "270 CAD",
@@ -33,7 +33,7 @@ var transaction03 = {
 };
 var transaction04 = {
     transactionID: "04",
-    date: "12/08/17",
+    date: "2012-08-17",
     transactionType: "ATM" ,
     locationT: "Kitchener",
     value: "200 CAD",
@@ -41,7 +41,7 @@ var transaction04 = {
 };
 var transaction05 = {
     transactionID: "05",
-    date: "12/12/17",
+    date: "2012-08-17",
     transactionType: "Transfer" ,
     locationT: "Kitchener",
     value: "-89 CAD",
@@ -49,7 +49,7 @@ var transaction05 = {
 };
 var transaction06 = {
     transactionID: "06",
-    date: "12/13/17",
+    date: "2012-08-19",
     transactionType: "Deposit" ,
     locationT: "Kitchener",
     value: "1200 CAD",
@@ -57,7 +57,7 @@ var transaction06 = {
 };
 var transaction07 = {
     transactionID: "07",
-    date: "12/21/17",
+    date: "2012-09-01",
     transactionType: "ATM" ,
     locationT: "Paris",
     value: "-23 CAD",
@@ -65,7 +65,7 @@ var transaction07 = {
 };
 var transaction08 = {
     transactionID: "08",
-    date: "12/26/17",
+    date: "2017-01-17",
     transactionType: "Charge" ,
     locationT: "Paris",
     value: "-230 CAD",
@@ -73,7 +73,7 @@ var transaction08 = {
 };
 var transaction09 = {
     transactionID: "09",
-    date: "12/27/17",
+    date: "2017-03-21",
     transactionType: "ATM" ,
     locationT: "Paris",
     value: "-780 CAD",
@@ -81,7 +81,7 @@ var transaction09 = {
 };
 var transaction10 = {
     transactionID: "10",
-    date: "12/27/17",
+    date: "2017-04-03",
     transactionType: "Transfer" ,
     locationT: "Kitchener",
     value: "-99 CAD",
@@ -89,7 +89,7 @@ var transaction10 = {
 };
 var transaction11 =  {
     transactionID: "11",
-    date: "12/28/17",
+    date: "2017-04-17",
     transactionType: "Transfer" ,
     locationT: "Kitchener",
     value: "78 CAD",
@@ -97,7 +97,7 @@ var transaction11 =  {
 };
 var transaction12 =  {
     transactionID: "12",
-    date: "12/28/17",
+    date: "2017-05-12",
     transactionType: "Online" ,
     locationT: "Kitchener",
     value: "-67 CAD",
@@ -105,7 +105,7 @@ var transaction12 =  {
 };
 var transaction13 = {
     transactionID: "13",
-    date: "12/28/17",
+    date: "2017-05-12",
     transactionType: "ATM" ,
     locationT: "Kitchener",
     value: "200 CAD",
@@ -113,7 +113,7 @@ var transaction13 = {
 };
 var transaction14 = {
     transactionID: "14",
-    date: "01/03/18",
+    date: "2017-05-13",
     transactionType: "ATM" ,
     locationT: "",
     value: "-120 CAD",
@@ -121,7 +121,7 @@ var transaction14 = {
 };
 var transaction15 ={
     transactionID: "15",
-    date: "02/07/18",
+    date: "2017-05-19",
     transactionType: "Charge" ,
     locationT: "Guelph",
     value: "-187 CAD",
@@ -129,7 +129,7 @@ var transaction15 ={
 };
 var transaction16 = {
     transactionID: "16",
-    date: "02/12/18",
+    date: "2018-01-12",
     transactionType: "Online" ,
     locationT: "Kitchener",
     value: "-89 CAD",
@@ -257,7 +257,7 @@ function addTransaction(){
             document.getElementById("value").style.borderColor = "black";
         }
 
-        if (value.length - value.indexOf("."))
+        if (value.length - value.indexOf(".") !== 3)
         {
             document.getElementById("valueHelp").innerHTML="Please round to two decimal places";
         }
@@ -271,19 +271,38 @@ function addTransaction(){
 
     } else
     {
-        function transaction(transactionID, date, transactionType, locationT, value){
-            this.transactionID = transactionID;
-            this.date = date;
-            this.transactionType = transactionType;
-            this.locationT = locationT;
-            this.value = value;
-        }
-        var transactionl = {transactionID: transactions.length + 1, date:date.value, transactionType:ttype.value, locationT:ld.value, value:value.value};
+
+        var date = document.getElementById("date").value;
+        var ld = document.getElementById("ld").value;
+        var value = document.getElementById("value").value;
+        var ttype = document.getElementById("ttype").value;
+
+        var transactionl = {transactionID: String(transactions.length + 1), date: date, transactionType: ttype, locationT: ld, value: value};
         transactions.push(transactionl);
-        document.getElementsByTagName("tbody")[0].innerHTML  += "<tr><td>" + transactionl.transactionID + "</td><td>" + date.value +
-            "</td><td>" + ttype.value + "</td><td>" +
-            ld.value
-            + "</td><td>"+value.value + "</td></tr>";
+        var tableBody = "";
+        for (var i = 0; i < transactions.length; i++) {
+
+            var locationOrDescription = transactions[i].locationT;
+            var valueString = "";
+            if (transactions[i].locationT.length == 0) {
+                locationOrDescription = transactions[i].transactiondDescription;
+            }
+
+            if (transactions[i].value.indexOf("-") !== -1) {
+                valueString = "<td class='value negative'>" + transactions[i].value + "</td>";
+            }
+            else {
+
+                valueString = "<td class='value positive'>" + transactions[i].value + "</td>";
+            }
+
+
+            tableBody += "<tr><td>" + transactions[i].transactionID + "</td><td>" + transactions[i].date +
+                "</td><td>" + transactions[i].transactionType + "</td><td>" +
+                locationOrDescription
+                + "</td>" + valueString + "</tr>";
+        }
+        document.getElementsByTagName("tbody")[0].innerHTML  = tableBody;
     }
 
 
