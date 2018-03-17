@@ -1,4 +1,4 @@
-function transaction_(transactionID, date, transactionType, locationT, value){
+function transaction(transactionID, date, transactionType, locationT, value){
     this.transactionID = transactionID;
     this.date = date;
     this.transactionType = transactionType;
@@ -188,10 +188,17 @@ function GoBack(){
     window.history.back();
 }
 
+
+
+
+
+
+
 function addTransaction(){
     var date = document.getElementById("date").value;
     var ld = document.getElementById("ld").value;
     var value = document.getElementById("value").value;
+    var ttype = document.getElementById("ttype").value;
 
     var rDate1 = /[1][9][9][0-9][-][0-9][0-9][-][0-9][0-9]/;
     var rDate2 = /[2][0][0,1][0-9][-][0-9][0-9][-][0-9][0-9]/;
@@ -230,7 +237,7 @@ function addTransaction(){
 
 
 
-        if (document.getElementById("ttype").value ==="none") {
+        if (ttype ==="none") {
             document.getElementById("ttypeHelp").innerHTML="Please transaction type";
             document.getElementById("ttype").style.borderColor = "red";
 
@@ -264,7 +271,19 @@ function addTransaction(){
 
     } else
     {
-        console.log("great")
+        function transaction(transactionID, date, transactionType, locationT, value){
+            this.transactionID = transactionID;
+            this.date = date;
+            this.transactionType = transactionType;
+            this.locationT = locationT;
+            this.value = value;
+        }
+        var transactionl = {transactionID: transactions.length + 1, date:date.value, transactionType:ttype.value, locationT:ld.value, value:value.value};
+        transactions.push(transactionl);
+        document.getElementsByTagName("tbody")[0].innerHTML  += "<tr><td>" + transactionl.transactionID + "</td><td>" + date.value +
+            "</td><td>" + ttype.value + "</td><td>" +
+            ld.value
+            + "</td><td>"+value.value + "</td></tr>";
     }
 
 
