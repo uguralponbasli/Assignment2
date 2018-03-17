@@ -1,0 +1,21 @@
+.negative
+{
+    color: red;
+}
+
+.positive
+{
+    color: green;
+}
+
+#main{
+    vertical-align: middle;
+}
+table {
+    border-collapse: collapse;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
