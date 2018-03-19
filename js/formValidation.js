@@ -1,88 +1,37 @@
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
-
 function validateForm() {
-    var errorMessage = "";
-    var errorReturn = true;
+    errorMessage = "";
     document.getElementById("errorMessage").innerHTML = errorMessage;
-    var email = document.forms["myForm"]["email"].value;
+    var fname = document.forms["myForm"]["fn"].value;
+    var lname = document.forms["myForm"]["ln"].value;
     var username = document.forms["myForm"]["un"].value;
+    var email = document.forms["myForm"]["email"].value;
     var password = document.forms["myForm"]["psw"].value;
-    var repeatPassword = document.forms["myForm"]["psw-repeat"].value;
+    var rPassword = document.forms["myForm"]["psw-repeat"].value;
 
-    
-
-    var strUsername = String(username);
-    var strEmail = String(email);
-    var strPassword = password;
-    var strRpassword = repeatPassword;
-    if (username == "") {
-        errorMessage += "*Name must be filled out <br>";
-        errorReturn = false;
+    if (fname == "" || lname == "" || username == "" || email == "" || password == "" || rPassword == "") {
+      return false;
     }
-    if(strUsername.length >5){
-        errorMessage += "*Username is greater than 5 characters.It must be included 5 long characters!<br>";
-        errorReturn = false;
-    } 
-    if(strUsername.length <5){
-        errorMessage += "*Username is less than 5 characters. It must be included 5 long characters!<br>";
-        errorReturn = false;
+    if (password != rPassword) {
+      errorMessage = "Passwords do not match";
+      document.getElementById("errorMessage").innerHTML = errorMessage;
+      return false;
     }
-
-    if(strPassword.length > 4 ){
-        errorMessage += "*Password must be 4 characters!<br>";
-        errorReturn = false;
-    }
-
-    if(strPassword.length <4){
-        errorMessage += "*Password must be 4 characters!<br>";
-        errorReturn = false;
-        }
-
-    if(strRpassword != strPassword){
-        errorMessage += "*Repeated password must be matched with the password!";
-        errorReturn = false;
-    }
-
-    if(validateEmail(email)){
-        
-    }else{
-         errorMessage += "*Invalid Email!";
-         errorReturn = false;
-    }
-    document.getElementById("errorMessage").innerHTML = errorMessage;
-
-    return errorReturn;
+    return true;
 }
 
 function SignInValidation(){
     var errorMessage = "";
     var errorReturn = true;
     document.getElementById("signInError").innerHTML = errorMessage;
-    var email = document.forms["signForm"]["email"].value;
+    var login = document.forms["signForm"]["login"].value;
     var password = document.forms["signForm"]["password"].value;
 
     var signInPassword = String(password);
 
-    if(signInPassword == "" || email == ""){
-        errorMessage += "*Check your password or email!<br>";
+    if(signInPassword == "" || login == ""){
         errorReturn = false;
     }
 
-    if(signInPassword.length >4 || signInPassword.length <4){
-        errorMessage += "*Password must be 4 characters!<br>";
-        errorReturn = false;
-    }
-
-   if(validateEmail(email)){
-
-   }else{
-        errorMessage += "*Invalid Email!";
-        errorReturn = false;
-   }
-    document.getElementById("signInError").innerHTML = errorMessage;
-        return errorReturn;
+    return errorReturn;
 
 }

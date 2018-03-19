@@ -6,6 +6,7 @@ body {
 
   .error{
       color:red;
+      font-size: 12px;
   }
 
   .topnav {
@@ -128,4 +129,8 @@ body {
        .signupbtn, .signinbtn {
          width: 100%;
       }
+  }
+
+  .link {
+    color: dodgerblue;
   }
