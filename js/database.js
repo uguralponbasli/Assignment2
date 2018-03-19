@@ -339,7 +339,7 @@ function addTransaction(){
 
     var rDate1 = /[1][9][9][0-9][-][0-9][0-9][-][0-9][0-9]/;
     var rDate2 = /[2][0][0,1][0-9][-][0-9][0-9][-][0-9][0-9]/;
-    var rld = /[A-Z,a-z,0-9,_]*/;
+    var rld = /[A-Za-z0-9_]*/;
     var rValue = /[-]*[1-9][0-9]*[.]{0,1}[0-9]*/;
     var correct = false;
 
