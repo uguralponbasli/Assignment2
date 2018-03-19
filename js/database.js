@@ -340,7 +340,7 @@ function addTransaction(){
     var rDate1 = /[1][9][9][0-9][-][0-9][0-9][-][0-9][0-9]/;
     var rDate2 = /[2][0][0,1][0-9][-][0-9][0-9][-][0-9][0-9]/;
     var rld = /[A-Z,a-z,0-9,_]*/;
-    var rValue = /[-]*[1-9][0-9]*[.]{0,1}[0-9][0-9]/;
+    var rValue = /[-]*[1-9][0-9]*[.]{0,1}[0-9]*/;
     var correct = false;
 
     document.getElementById("dateHelp").innerHTML="";
@@ -407,10 +407,7 @@ function addTransaction(){
             document.getElementById("value").style.borderColor = "black";
         }
 
-        if (value.length - value.indexOf(".") !== 3)
-        {
-            document.getElementById("valueHelp").innerHTML="Please round to two decimal places";
-        }
+
 
         if (parseFloat(value) > 10000.00 || parseFloat(value) < -10000.00)
         {
@@ -425,6 +422,9 @@ function addTransaction(){
         var date = document.getElementById("date").value;
         var ld = document.getElementById("ld").value;
         var value = document.getElementById("value").value;
+        var nValue = parseFloat(value);
+        nValue = Math.round(nValue);
+        value = nValue.toString();
         var ttype = document.getElementById("ttype").value;
 
         var transactionl = {transactionID: String(transactions.length + 1), date: date, transactionType: ttype, locationT: ld, value: value};
