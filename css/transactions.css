@@ -14,6 +14,13 @@ tr:nth-child(even) {
     background-color: #f2f2f2
 }
 
+#addTransaction {
+    background-color: #f2f2f2;
+    border: 5px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+}
+
 .select-style {
     border: 1px solid #ccc;
     width: 120px;
