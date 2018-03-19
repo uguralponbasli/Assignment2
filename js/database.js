@@ -354,7 +354,7 @@ function addTransaction(){
 
 
 
-    if (!(rDate1.test(date) || rDate2.test(date)) || !rld.test(ld) || ld ==="" || ld.length<10 || !rValue.test(value) || parseFloat(value) > 10000.00 || parseFloat(value) < -10000.00) {
+    if (!(rDate1.test(date) || rDate2.test(date)) || !rld.test(ld) || ld ==="" || value===""|| ld.length<10 || !rValue.test(value) || parseFloat(value) > 10000.00 || parseFloat(value) < -10000.00) {
         if (!(rDate1.test(date) || rDate2.test(date))) {
             document.getElementById("dateHelp").innerHTML="Date is not valid!";
             document.getElementById("date").style.borderColor = "red";
@@ -394,7 +394,10 @@ function addTransaction(){
         }
 
 
-
+        if (value===""){
+            document.getElementById("valueHelp").innerHTML = "The field cannot be empty";
+            document.getElementById("value").style.borderColor = "red";
+        }
 
 
         if (parseFloat(value) >= 10000.00 || parseFloat(value) <= -10000.00)
