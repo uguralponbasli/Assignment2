@@ -339,7 +339,7 @@ function addTransaction(){
 
     var rDate1 = /[1][9][9][0-9][-][0-9][0-9][-][0-9][0-9]/;
     var rDate2 = /[2][0][0,1][0-9][-][0-9][0-9][-][0-9][0-9]/;
-    var rld = /[A-Za-z0-9_]*/;
+    var rld = /^[a-zA-Z0-9_ ]*$/;
     var rValue = /[-]*[1-9][0-9]*[.]{0,1}[0-9]*/;
     var correct = false;
 
@@ -347,9 +347,8 @@ function addTransaction(){
     document.getElementById("date").style.borderColor = "black"
     document.getElementById("ldHelp").innerHTML="";
     document.getElementById("ld").style.borderColor = "black";
-    document.getElementById("ttypeHelp").innerHTML="Please transaction type";
     document.getElementById("ttype").style.borderColor = "black";
-    document.getElementById("valueHelp").innerHTML="Please transaction type";
+    document.getElementById("valueHelp").innerHTML="";
     document.getElementById("value").style.borderColor = "black";
 
 
@@ -366,17 +365,15 @@ function addTransaction(){
             document.getElementById("date").style.borderColor = "black"
         }
         if (!rld.test(ld) || ld ==="") {
-            document.getElementById("ldHelp").innerHTML="Please enter description or city.\n";
             document.getElementById("ld").style.borderColor = "red";
 
         } else {
-            document.getElementById("ldHelp").innerHTML="";
             document.getElementById("ld").style.borderColor = "black";
         }
 
 
         if (ld.length<10) {
-            document.getElementById("ldHelp").innerHTML+="Please enter value, 10 characters at least";
+            document.getElementById("ldHelp").innerHTML="Please enter value, 10 characters at least";
             document.getElementById("ld").style.borderColor = "red";
 
         } else {
@@ -388,7 +385,7 @@ function addTransaction(){
 
 
         if (ttype ==="none") {
-            document.getElementById("ttypeHelp").innerHTML="Please transaction type";
+            document.getElementById("ttypeHelp").innerHTML="Please enter transaction type";
             document.getElementById("ttype").style.borderColor = "red";
 
         } else {
@@ -396,22 +393,13 @@ function addTransaction(){
             document.getElementById("ttype").style.borderColor = "black";
         }
 
-        if (!rValue.test(value)) {
-
-            document.getElementById("valueHelp").innerHTML="Value cannot be empty. Value should be numeric. ";
-
-            document.getElementById("value").style.borderColor = "red";
-
-        } else {
-            document.getElementById("valueHelp").innerHTML="";
-            document.getElementById("value").style.borderColor = "black";
-        }
 
 
 
-        if (parseFloat(value) > 10000.00 || parseFloat(value) < -10000.00)
+
+        if (parseFloat(value) >= 10000.00 || parseFloat(value) <= -10000.00)
         {
-            document.getElementById("valueHelp").innerHTML="The maximum value entered should not be more than $10,000.00. The minimum value entered should not be more more than -$10,000.00";
+            document.getElementById("valueHelp").innerHTML = "The maximum value entered should not be more than $10,000.00.";
             document.getElementById("value").style.borderColor = "red";
         }
 
@@ -423,7 +411,7 @@ function addTransaction(){
         var ld = document.getElementById("ld").value;
         var value = document.getElementById("value").value;
         var nValue = parseFloat(value);
-        nValue = Math.round(nValue);
+        nValue = nValue.toFixed(2);
         value = nValue.toString();
         var ttype = document.getElementById("ttype").value;
 
