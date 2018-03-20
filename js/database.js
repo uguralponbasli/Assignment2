@@ -12,7 +12,7 @@ var transaction01 = {
     date: "2012-05-17",
     transactionType: "ATM" ,
     locationT: "Kitchener",
-    value: "-800 CAD",
+    value: "-800.00",
     transactiondDescription: ""
 };
 var transaction02 = {
@@ -20,7 +20,7 @@ var transaction02 = {
     date: "2012-05-17",
     transactionType: "Online" ,
     locationT: "Kitchener",
-    value: "-56 CAD",
+    value: "-56.00",
     transactiondDescription: ""
 };
 var transaction03 = {
@@ -28,7 +28,7 @@ var transaction03 = {
     date: "2012-05-17",
     transactionType: "Transfer" ,
     locationT: "Toronto",
-    value: "270 CAD",
+    value: "270.00",
     transactiondDescription: ""
 };
 var transaction04 = {
@@ -36,7 +36,7 @@ var transaction04 = {
     date: "2012-08-17",
     transactionType: "ATM" ,
     locationT: "Kitchener",
-    value: "200 CAD",
+    value: "200.00",
     transactiondDescription: ""
 };
 var transaction05 = {
@@ -44,7 +44,7 @@ var transaction05 = {
     date: "2012-08-17",
     transactionType: "Transfer" ,
     locationT: "Kitchener",
-    value: "-89 CAD",
+    value: "-89.00",
     transactiondDescription: ""
 };
 var transaction06 = {
@@ -52,7 +52,7 @@ var transaction06 = {
     date: "2012-08-19",
     transactionType: "Deposit" ,
     locationT: "Kitchener",
-    value: "1200 CAD",
+    value: "1200.00",
     transactiondDescription: ""
 };
 var transaction07 = {
@@ -60,7 +60,7 @@ var transaction07 = {
     date: "2012-09-01",
     transactionType: "ATM" ,
     locationT: "Paris",
-    value: "-23 CAD",
+    value: "-23.00",
     transactiondDescription: ""
 };
 var transaction08 = {
@@ -68,7 +68,7 @@ var transaction08 = {
     date: "2017-01-17",
     transactionType: "Charge" ,
     locationT: "Paris",
-    value: "-230 CAD",
+    value: "-230.00",
     transactiondDescription: ""
 };
 var transaction09 = {
@@ -76,7 +76,7 @@ var transaction09 = {
     date: "2017-03-21",
     transactionType: "ATM" ,
     locationT: "Paris",
-    value: "-780 CAD",
+    value: "-780.00",
     transactiondDescription: ""
 };
 var transaction10 = {
@@ -84,7 +84,7 @@ var transaction10 = {
     date: "2017-04-03",
     transactionType: "Transfer" ,
     locationT: "Kitchener",
-    value: "-99 CAD",
+    value: "-99.00",
     transactiondDescription: ""
 };
 var transaction11 =  {
@@ -92,7 +92,7 @@ var transaction11 =  {
     date: "2017-04-17",
     transactionType: "Transfer" ,
     locationT: "Kitchener",
-    value: "78 CAD",
+    value: "78.00",
     transactiondDescription: ""
 };
 var transaction12 =  {
@@ -100,7 +100,7 @@ var transaction12 =  {
     date: "2017-05-12",
     transactionType: "Online" ,
     locationT: "Kitchener",
-    value: "-67 CAD",
+    value: "-67.00",
     transactiondDescription: ""
 };
 var transaction13 = {
@@ -108,7 +108,7 @@ var transaction13 = {
     date: "2017-05-12",
     transactionType: "ATM" ,
     locationT: "Kitchener",
-    value: "200 CAD",
+    value: "200.00",
     transactiondDescription: ""
 };
 var transaction14 = {
@@ -116,7 +116,7 @@ var transaction14 = {
     date: "2017-05-13",
     transactionType: "ATM" ,
     locationT: "Guelph",
-    value: "-120 CAD",
+    value: "-120.00",
     transactiondDescription: "Cash withdrawal"
 };
 var transaction15 ={
@@ -124,7 +124,7 @@ var transaction15 ={
     date: "2017-05-19",
     transactionType: "Charge" ,
     locationT: "Guelph",
-    value: "-187 CAD",
+    value: "-187.00",
     transactiondDescription: ""
 };
 var transaction16 = {
@@ -132,7 +132,7 @@ var transaction16 = {
     date: "2018-01-12",
     transactionType: "Online" ,
     locationT: "Kitchener",
-    value: "-89 CAD",
+    value: "-89.00",
     transactiondDescription: ""
 };
 
@@ -160,7 +160,7 @@ function showTransactions() {
   var tableBody = "";
   var valueString = "";
 
-  for (var i = transactions.length - 1; i >= 0; i--) {
+  for (var i = 0; i < transactions.length; i++) {
     var locationOrDescription = transactions[i].locationT;
 
     if (transactions[i].locationT.length == 0) {
@@ -270,7 +270,7 @@ function filter() {
   var tableBody = "";
   var valueString = "";
 
-  for (var i = sortedArray3.length - 1; i >= 0; i--) {
+  for (var i = 0; i < sortedArray3.length; i++) {
     var locationOrDescription = sortedArray3[i].locationT;
 
     if (sortedArray3[i].locationT.length == 0) {
